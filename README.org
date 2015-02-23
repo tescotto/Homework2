@@ -56,7 +56,7 @@ select * from checks
 
 Given the following table description for the arrests table: 
 
-| nysid | officerId| topCharge|
+| nysid | officerId | topCharge |
 
 Do the following:
 
@@ -67,17 +67,17 @@ Do the following:
 
 10. Using the arrests table, write a query to return all the unique topCharges.
 
-Use the double_agents table to answer the following questions.
+Use the doubleAgents table to answer the following questions.
 
-LASTNAME        FIRSTNAME        AREACODE PHONE    ST ZIP
---------------- ---------------- -------- -------- -- ------
-BUNDY           AL                    100 555-1111 IL 22333
-MEZA            AL                    200 555-2222 UK
-MERRICK         BUD                   300 555-6666 CO 80212
-MAST            JD                    381 555-6767 LA 23456
-BULHER          FERRIS                345 555-3223 IL 23332
-PERKINS         ALTON                 911 555-3116 CA 95633
-BOSS            SIR                   204 555-2345 CT 95633
+| LASTNAME | FIRSTNAME | AREACODE |    PHONE | ST |   ZIP |
+|----------+-----------+----------+----------+----+-------|
+| BUNDY    | AL        |      100 | 555-1111 | IL | 22333 |
+| MEZA     | AL        |      200 | 555-2222 | UK |       |
+| MERRICK  | BUD       |      300 | 555-6666 | CO | 80212 |
+| MAST     | JD        |      381 | 555-6767 | LA | 23456 |
+| BULHER   | FERRIS    |      345 | 555-3223 | IL | 23332 |
+| PERKINS  | ALTON     |      911 | 555-3116 | CA | 95633 |
+| BOSS     | SIR       |      204 | 555-2345 | CT | 95633 |
 
 11. Write a query that returns everyone in the database whose last name begins with M.
 12. Write a query that returns everyone who lives in Illinois with a first name of AL.
@@ -92,19 +92,19 @@ WHERE FIRSTNAME = 'AL'
 #+END_SRC
 
 15. Using the DOUBLE_AGENTS table, write a query that returns the following:
-NAME                ST
-------------------- --
-AL             FROM IL
+| NAME                | ST |
+|---------------------+----|
+| AL             FROM | IL |
 
 
 16. Using the DOUBLE_AGENTS table, write a query that returns the following:
 
-NAME                       PHONE
--------------------------- ------------
-MERRICK, BUD               300-555-6666
-MAST, JD                   381-555-6767
-BULHER, FERRIS             345-555-3223
-INPUT:
+| NAME           |        PHONE |
+|----------------+--------------|
+| MERRICK, BUD   | 300-555-6666 |
+| MAST, JD       | 381-555-6767 |
+| BULHER, FERRIS | 345-555-3223 |
+
 
 17. Which function capitalizes the first letter of a character string and makes the rest lowercase?
 18. Which functions are also known by the /same/ name?
@@ -147,12 +147,14 @@ Marksmanship table:
 officers table
 
 | First | Middle  | Last    | BadgeID |
+|-------+---------+---------+---------|
 | Kevin | Anthony | Petrone |      32 |
 
 OUTPUT:
 
-INITIALS__________CODE
-K.A.P.              32
+| INITIALS | CODE |
+|----------+------|
+| K.A.P.   |   32 |
 
 26. Which clause works just like LIKE(<exp>%)? (HINT: Look it up on google.)
 
@@ -192,8 +194,10 @@ Here is your baseline that shows how many folks are on each team.
 Compare it to the query that solves the question:
 INPUT:
 
+#+BEGIN_SRC sql :exports code
 SELECT TEAM, COUNT(TEAM)
 FROM ORGCHART
 WHERE SICKLEAVE >=30
 GROUP BY TEAM;
+#+END_SRC
 

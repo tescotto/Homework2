@@ -53,17 +53,106 @@ Do the following:
 
 3.  Using the arrests table, write a query to return all the unique topCharges.
 
-Use the double<sub>agents</sub> table to answer the following questions.
+Use the doubleAgents table to answer the following questions.
 
-LASTNAME        FIRSTNAME        AREACODE PHONE    ST ZIP
-&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; -&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; &#x2013;&#x2014;&#x2014; &#x2013;&#x2014;&#x2014; &#x2013; &#x2014;&#x2014;
-BUNDY           AL                    100 555-1111 IL 22333
-MEZA            AL                    200 555-2222 UK
-MERRICK         BUD                   300 555-6666 CO 80212
-MAST            JD                    381 555-6767 LA 23456
-BULHER          FERRIS                345 555-3223 IL 23332
-PERKINS         ALTON                 911 555-3116 CA 95633
-BOSS            SIR                   204 555-2345 CT 95633
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">LASTNAME</th>
+<th scope="col" class="left">FIRSTNAME</th>
+<th scope="col" class="right">AREACODE</th>
+<th scope="col" class="right">PHONE</th>
+<th scope="col" class="left">ST</th>
+<th scope="col" class="right">ZIP</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="left">BUNDY</td>
+<td class="left">AL</td>
+<td class="right">100</td>
+<td class="right">555-1111</td>
+<td class="left">IL</td>
+<td class="right">22333</td>
+</tr>
+
+
+<tr>
+<td class="left">MEZA</td>
+<td class="left">AL</td>
+<td class="right">200</td>
+<td class="right">555-2222</td>
+<td class="left">UK</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="left">MERRICK</td>
+<td class="left">BUD</td>
+<td class="right">300</td>
+<td class="right">555-6666</td>
+<td class="left">CO</td>
+<td class="right">80212</td>
+</tr>
+
+
+<tr>
+<td class="left">MAST</td>
+<td class="left">JD</td>
+<td class="right">381</td>
+<td class="right">555-6767</td>
+<td class="left">LA</td>
+<td class="right">23456</td>
+</tr>
+
+
+<tr>
+<td class="left">BULHER</td>
+<td class="left">FERRIS</td>
+<td class="right">345</td>
+<td class="right">555-3223</td>
+<td class="left">IL</td>
+<td class="right">23332</td>
+</tr>
+
+
+<tr>
+<td class="left">PERKINS</td>
+<td class="left">ALTON</td>
+<td class="right">911</td>
+<td class="right">555-3116</td>
+<td class="left">CA</td>
+<td class="right">95633</td>
+</tr>
+
+
+<tr>
+<td class="left">BOSS</td>
+<td class="left">SIR</td>
+<td class="right">204</td>
+<td class="right">555-2345</td>
+<td class="left">CT</td>
+<td class="right">95633</td>
+</tr>
+</tbody>
+</table>
 
 1.  Write a query that returns everyone in the database whose last name begins with M.
 2.  Write a query that returns everyone who lives in Illinois with a first name of AL.
@@ -77,19 +166,65 @@ BOSS            SIR                   204 555-2345 CT 95633
 
 1.  Using the DOUBLE<sub>AGENTS</sub> table, write a query that returns the following:
 
-NAME                ST
--&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; &#x2013;
-AL             FROM IL
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">NAME</th>
+<th scope="col" class="left">ST</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="left">AL             FROM</td>
+<td class="left">IL</td>
+</tr>
+</tbody>
+</table>
 
 1.  Using the DOUBLE<sub>AGENTS</sub> table, write a query that returns the following:
 
-NAME                       PHONE
-&#x2013;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014; &#x2014;&#x2014;&#x2014;&#x2014;
-MERRICK, BUD               300-555-6666
-MAST, JD                   381-555-6767
-BULHER, FERRIS             345-555-3223
-INPUT:
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">NAME</th>
+<th scope="col" class="right">PHONE</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="left">MERRICK, BUD</td>
+<td class="right">300-555-6666</td>
+</tr>
+
+
+<tr>
+<td class="left">MAST, JD</td>
+<td class="right">381-555-6767</td>
+</tr>
+
+
+<tr>
+<td class="left">BULHER, FERRIS</td>
+<td class="right">345-555-3223</td>
+</tr>
+</tbody>
+</table>
 
 1.  Which function capitalizes the first letter of a character string and makes the rest lowercase?
 2.  Which functions are also known by the *same* name?
@@ -157,15 +292,16 @@ officers table
 
 <col  class="right" />
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="left">First</td>
-<td class="left">Middle</td>
-<td class="left">Last</td>
-<td class="right">BadgeID</td>
+<th scope="col" class="left">First</th>
+<th scope="col" class="left">Middle</th>
+<th scope="col" class="left">Last</th>
+<th scope="col" class="right">BadgeID</th>
 </tr>
+</thead>
 
-
+<tbody>
 <tr>
 <td class="left">Kevin</td>
 <td class="left">Anthony</td>
@@ -177,8 +313,28 @@ officers table
 
 OUTPUT:
 
-INITIALS\_\_\_\_\_\_\_\_\_<sub>CODE</sub>
-K.A.P.              32
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">INITIALS</th>
+<th scope="col" class="right">CODE</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="left">K.A.P.</td>
+<td class="right">32</td>
+</tr>
+</tbody>
+</table>
 
 1.  Which clause works just like LIKE(<exp>%)? (HINT: Look it up on google.)
 
@@ -309,7 +465,7 @@ Here is your baseline that shows how many folks are on each team.
 Compare it to the query that solves the question:
 INPUT:
 
-SELECT TEAM, COUNT(TEAM)
-FROM ORGCHART
-WHERE SICKLEAVE >=30
-GROUP BY TEAM;
+    SELECT TEAM, COUNT(TEAM)
+    FROM ORGCHART
+    WHERE SICKLEAVE >=30
+    GROUP BY TEAM;
