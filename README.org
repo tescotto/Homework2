@@ -1,0 +1,199 @@
+#+OPTIONS: H:3 
+#+OPTIONS: tex:dvipng
+#+OPTIONS: toc:nil 
+#+STARTUP: align oddeven lognotestate
+#+SEQ_TODO: TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
+#+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n) export(e)
+#+Date:  
+#+TITLE: Hw2: More practice
+#+AUTHOR: Evan Misshula\\ \texttt{Criminal Justice, CUNY Graduate Center}
+#+LANGUAGE:   en
+#+EXCLUDE_TAGS: noexport
+
+
+#+LATEX_HEADER: \usepackage{attrib}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \let\iint\undefined 
+#+LATEX_HEADER: \let\iiint\undefined 
+#+LATEX_HEADER: \usepackage{dsfont}
+#+LATEX_HEADER: \usepackage[autostyle]{csquotes}
+#+LATEX_HEADER: \usepackage[backend=biber,style=authoryear-icomp,sortlocale=de_DE,natbib=true,url=false, doi=true,eprint=false]{biblatex}
+#+LATEX_HEADER: \addbibresource{mybib.bib}
+#+LATEX_HEADER: \addbibresource{/Users/emisshula/research/citations/refs.bib} 
+#+LATEX_HEADER: \usepackage[retainorgcmds]{IEEEtrantools}
+#+LATEX_HEADER: \author{Misshula, Evan\\ \texttt{Criminal Justice, CUNY Graduate Center}}
+#+LATEX_HEADER: \title{Demonstration Of Instrumental Variables And Control Function Methods}
+# \bibliography{mybib.bib,/Users/emisshula/research/citations/refs.bib} 
+
+* Introduction to SQL
+
+1. What makes SQL a nonprocedural language?
+2. How can you tell whether a database is truly relational?
+3. What can you do with SQL?
+4. Name the process that separates data into distinct, unique sets.
+5. Do the following statements return the same or different output:
+#+BEGIN_SRC sql :exports code
+SELECT * FROM ARRESTS;
+select * from arrests;
+#+END_SRC
+
+6. None of the following queries work. Why not?
+#+BEGIN_SRC sql :exports code
+select *;
+Select * from checks
+Select amount name payee FROM checks;
+#+END_SRC
+
+7. Which of the following SQL statements will work?
+
+#+BEGIN_SRC sql :exports code
+select * 
+from checks;
+select * from checks;
+select * from checks
+/
+#+END_SRC
+
+Given the following table description for the arrests table: 
+
+| nysid | officerId| topCharge|
+
+Do the following:
+
+8. Write a query to return just the check officerId and the topCharge.
+
+9. Rewrite the query from exercise 1 so that the topCharge will appear
+   as the first column in your query results.
+
+10. Using the arrests table, write a query to return all the unique topCharges.
+
+Use the double_agents table to answer the following questions.
+
+LASTNAME        FIRSTNAME        AREACODE PHONE    ST ZIP
+--------------- ---------------- -------- -------- -- ------
+BUNDY           AL                    100 555-1111 IL 22333
+MEZA            AL                    200 555-2222 UK
+MERRICK         BUD                   300 555-6666 CO 80212
+MAST            JD                    381 555-6767 LA 23456
+BULHER          FERRIS                345 555-3223 IL 23332
+PERKINS         ALTON                 911 555-3116 CA 95633
+BOSS            SIR                   204 555-2345 CT 95633
+
+11. Write a query that returns everyone in the database whose last name begins with M.
+12. Write a query that returns everyone who lives in Illinois with a first name of AL.
+13. What shorthand could you use instead of WHERE a >= 10 AND a <=30?
+14. What will this query return?
+
+#+BEGIN_SRC sql :exports code
+SELECT FIRSTNAME
+FROM DOUBLE_AGENTS
+WHERE FIRSTNAME = 'AL'
+  AND LASTNAME = 'BULHER';
+#+END_SRC
+
+15. Using the DOUBLE_AGENTS table, write a query that returns the following:
+NAME                ST
+------------------- --
+AL             FROM IL
+
+
+16. Using the DOUBLE_AGENTS table, write a query that returns the following:
+
+NAME                       PHONE
+-------------------------- ------------
+MERRICK, BUD               300-555-6666
+MAST, JD                   381-555-6767
+BULHER, FERRIS             345-555-3223
+INPUT:
+
+17. Which function capitalizes the first letter of a character string and makes the rest lowercase?
+18. Which functions are also known by the /same/ name?
+19. Will this query work?
+
+#+BEGIN_SRC sql :exports code
+SELECT COUNT(LASTNAME) FROM CHARACTERS;
+#+END_SRC
+  
+20. How about this one?
+#+BEGIN_SRC sql :exports code
+SELECT SUM(LASTNAME) FROM CHARACTERS
+#+END_SRC
+
+21. Assuming that they are separate columns, which function(s) would
+   splice together FIRSTNAME and LASTNAME?
+
+
+22. What does the answer 37 mean from the following SELECT?
+
+
+#+BEGIN_SRC sql :exports code 
+SELECT COUNT(*) FROM drone_strikes;
+#+END_SRC
+ 
+23. Will the following statement work? (Hint: look up substr)
+
+#+BEGIN_SRC sql :exports code
+SELECT SUBSTR LASTNAME,1,5 FROM NAME_TBL;
+#+END_SRC
+
+Marksmanship table:
+| officerId | FirstName | LastName | hits | shotsTaken |
+
+
+24. Using a table called SHOOTSTATS table, write a query to determine who is are on target less than .25. 
+
+25. Using today's OFFICERS table, write a query that will return the following:
+
+officers table
+
+| First | Middle  | Last    | BadgeID |
+| Kevin | Anthony | Petrone |      32 |
+
+OUTPUT:
+
+INITIALS__________CODE
+K.A.P.              32
+
+26. Which clause works just like LIKE(<exp>%)? (HINT: Look it up on google.)
+
+27. What is the function of the GROUP BY clause, and what other clause does it act like?
+
+28. Will this SELECT work?
+
+#+BEGIN_SRC sql :exports code
+ NAME, AVG(SALARY), DEPARTMENT
+     FROM PAY_TBL
+     WHERE DEPARTMENT = 'SWAT'
+     ORDER BY NAME
+     GROUP BY DEPARTMENT, SALARY;
+#+END_SRC
+
+29. When using the HAVING clause, do you always have to use a GROUP BY also?
+
+30. Can you use ORDER BY on a column that is not one of the columns in the SELECT statement?
+
+
+31. Using the ORGCHART table from the following examples, find out how many people on each team have 30 or more days of sick leave.
+Here is your baseline that shows how many folks are on each team.
+
+| empId | First   | Last        | Team       | Sickleave |
+|     1 | Alan    | Turing      | Algebra    |        31 |
+|     2 | John    | Von Neuman  | PDE        |        32 |
+|     3 | Robert  | Oppenhiemer | Physics    |        27 |
+|     4 | Enrico  | Fermi       | Physics    |        24 |
+|     5 | Leo     | Szilard     | Physics    |        37 |
+|     6 | George  | Danzig      | Operations |        22 |
+|     7 | Eric    | Djkstra     | CS         |        21 |
+|     8 | Linus   | Torvals     | CS         |        36 |
+|     9 | Richard | Stallman    | CS         |        40 |
+  
+
+
+Compare it to the query that solves the question:
+INPUT:
+
+SELECT TEAM, COUNT(TEAM)
+FROM ORGCHART
+WHERE SICKLEAVE >=30
+GROUP BY TEAM;
+
